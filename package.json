@@ -1,0 +1,24 @@
+{
+  "name": "cat_api_case",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Arielitoz/cat_Api_Case.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Arielitoz/cat_Api_Case/issues"
+  },
+  "homepage": "https://github.com/Arielitoz/cat_Api_Case#readme",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "express": "^4.18.1"
+  }
+}
