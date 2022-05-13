@@ -11,41 +11,26 @@ server.use(express.json());
 
 server.get("/races", async (req, res) => {
     try {
-        const { data } =  await api.get('breeds');
+        const { data } = await api.get('breeds');
 
-
-        if (database.cats.length == data.length) {
-            res.send({ message: 'Nada a ser inserido.' })
-        } else {
-            for(let i = 0; i <= data.length; i ++) {
+        if (database.cats.length === 0) {
+            data.forEach(cat => {
                 axios.post(baseUrlCats, {
-                    "id": data[i].id,
-                    "name": data[i].name,
-                    "origin": data[i].origin,
-                    "description": data[i].description,
-                    "temperament": data[i].temperament,
-                    "imageId": data[i].reference_image_id
+                    id: cat.id,
+                    name: cat.name,
+                    origin: cat.origin,
+                    description: cat.description,
+                    temperament: cat.temperament,
+                    imageId: cat.reference_image_id
                 })
-            }
-            
-            return res.send({ message: 'Adicionando gatos na base.' })
-                // const gato = {
-                //     "id": cat.id,
-                //     "name": cat.name,
-                //     "origin": cat.origin,
-                //     "description": cat.description,
-                //     "temperament": cat.temperament,
-                //     "imageId": cat.reference_image_id
-                // }
-                // server.post(baseUrlCats, gato)
-                //     .then( res => {
-                //         console.log("Gatos Registrados");
-                //     }).catch( err => {
-                //         console.log(err)
-                //         return res.status(400).send({ error: 'Error updating new project' });
-                //     });
+            });
+            return res.status(201).send({ message: 'Base Atualizada' });
+        } else {
+            return res.status(200).send(database.cats);
         }
+
     } catch (error) {
+        console.log(error)
         res.send({ error: error.message })
     }
 });
