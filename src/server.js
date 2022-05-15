@@ -24,7 +24,8 @@ server.get("/races", async (req, res) => {
                     origin: cat.origin,
                     description: cat.description,
                     temperament: cat.temperament,
-                    imageId: cat.reference_image_id
+                    imageId: cat.reference_image_id,
+                    image: cat.image.url
                 })
             });
             return res.status(201).send({ message: 'Base Atualizada' });
