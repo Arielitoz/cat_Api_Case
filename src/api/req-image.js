@@ -6,7 +6,7 @@ const axios = require('axios');
  */
 
 const apiImage = axios.create({
-    baseURL: "https://api.thecatapi.com/v1/images/search?category_ids="
+    baseURL: "https://api.thecatapi.com/v1/images/"
 });
 
 module.exports = apiImage;
