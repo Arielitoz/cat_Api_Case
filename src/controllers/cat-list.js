@@ -28,9 +28,30 @@ router.get('/race/:id', (req, res) => {
         });
 
         if (id < 1 || id > 67) {
-            return res.status(404).send({ message: 'Adasd' });
+            return res.status(404).send({ message: 'Nenhuma raça foi atribuída a esse identificador.' });
         }
-        
+
+        return res.status(200).send(cat);
+    } catch (error) {
+        return res.status(500).send({ message: error });
+    }
+
+});
+
+router.get('/races/temp/:temp', (req, res) => {
+    
+    try {
+        const temp = req.params.temp;
+        axios.get(url.baseUrlCats);
+        const info = database.cats;
+
+        let cat = info.filter((item) => {
+            // let word = item.temperament.split(',');
+
+            if (item.temperament.includes(temp)) {
+                return item;
+            }
+        })
         return res.status(200).send(cat);
     } catch (error) {
         return res.status(404).send({ message: error });
@@ -38,6 +59,26 @@ router.get('/race/:id', (req, res) => {
 
 });
 
+router.get('/races/:origin', (req, res) => {
+    
+    try {
+        const origin = req.params.origin;
+        axios.get(url.baseUrlCats);
+        const info = database.cats;
 
+        
+        let cat = info.filter((item) => {
+            return (item.origin) == origin;
+        });
+
+        if (cat.length == 0) {
+            return res.status(400).send({ message: 'Origem Não encontrada' });
+        }
+        return res.status(200).send(cat);
+    } catch (error) {
+        return res.status(404).send({ message: error });
+    }
+
+});
 
 module.exports = router;
