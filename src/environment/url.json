@@ -1,0 +1,5 @@
+{
+    "baseUrlCats": "http://localhost:3001/cats",
+    "baseUrlCatsHats": "http://localhost:3001/imageHats",
+    "baseUrlCatsSun": "http://localhost:3001/imageSunglasses"
+}
