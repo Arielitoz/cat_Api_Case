@@ -856,5 +856,10 @@
     }
   ],
   "imageSunglasses": [],
-  "imageHats": []
+  "imageHats": [
+    {
+      "id": "34v",
+      "url": "https://cdn2.thecatapi.com/images/34v.jpg"
+    }
+  ]
 }

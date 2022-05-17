@@ -1,0 +1,40 @@
+{
+    "openapi": "3.0.3",
+    "info": {
+        "title": "Cats",
+        "description": "Documentação de um projeto baseado na 'Cat-Api': https://thecatapi.com/",
+        "version": "1.0.0"
+    },
+    "basePath": "/",
+    "paths": {
+        "/data/races": {
+            "get": {
+                "tags": ["Cat-Data"],
+                "responses": {}
+            }
+        },
+
+        "/data/image-cat": {
+            "get": {
+                "tags": ["Cat-Data"],
+                "parameters": [{
+                    "in": "query",
+                    "name": "id",
+                    "type": "string",
+                    "required": true
+                }],
+                "responses": {
+                    "201": {
+                        "description": "Imagem salva na base de dados."
+                    },
+                    "500": {
+                        "description": "Erro interno."
+                    },
+                    "404": {
+                        "description": "Id não encontrado."
+                    }
+                }
+            }
+        }
+    }
+}
