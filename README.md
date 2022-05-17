@@ -68,11 +68,8 @@ localhost:5601
 ### Testes Estruturais:
 
 - Testes Unitários: Por ser uma aplicação relativamente pequena e separada em algumas chamadas. Cada 'endpoint' será testado dessa forma.
-    <br>
 - Teste de Stress: Cada chamada deve ser submetida a um teste de stress para averiguar chamadas inesperadas da documentação, quantidade de usuários e outros.
-<br>
 - Teste de Carga: Testar a quantidade de usuários simultâneos em um endpoint.
-<br>
 - Teste Automatizado: Simular e repetir diversos cenários de teste, para encontrar bugs, minimizar os problemas e diminuir o tempo gasto em testes manuais.
 
 [⬆ Voltar ao topo](#Cat-API-Case)<br>
