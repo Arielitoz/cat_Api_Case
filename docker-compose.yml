@@ -1,0 +1,35 @@
+version: "3"
+services:
+  app:
+    build: .
+    command: npm start
+    ports: 
+      - "4004:4004"
+    volumes:
+      - .:/usr/app
+
+  elasticsearch01:
+    container_name: elasticsearch01
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.9.2
+    ports:
+      - 9200:9200
+      - 9300:9300
+    environment:
+      discovery.type: single-node
+    networks:
+    - elastic
+
+  kibana01:
+      container_name: kibana01
+      image: docker.elastic.co/kibana/kibana:7.9.2
+      ports:
+        - 5601:5601
+      environment:
+        - ELASTICSEARCH_URL=http://elasticsearch01:9200
+        - ELASTICSEARCH_HOSTS=http://elasticsearch01:9200
+      networks:
+      - elastic
+
+networks:
+  elastic:
+    driver: bridge

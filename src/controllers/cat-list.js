@@ -1,8 +1,9 @@
 const express = require("express");
 const router = express.Router();
-const database = require('../../backend/db.json')
+const database = require('../../db.json');
 const axios = require('axios');
 const url = require('../environment/url.json');
+const elastic = require('../client/elasticsearch');
 
 router.get('/list-races', (req, res) => {
     
@@ -16,7 +17,7 @@ router.get('/list-races', (req, res) => {
 
 });
 
-router.get('/race/:id', (req, res) => {
+router.get('/:id', (req, res) => {
     
     try {
         const id = req.params.id;
@@ -38,7 +39,7 @@ router.get('/race/:id', (req, res) => {
 
 });
 
-router.get('/races/temp/:temp', (req, res) => {
+router.get('/temp/:temp', (req, res) => {
     
     try {
         const temp = req.params.temp;
@@ -59,7 +60,7 @@ router.get('/races/temp/:temp', (req, res) => {
 
 });
 
-router.get('/races/:origin', (req, res) => {
+router.get('/origin/:origin', (req, res) => {
     
     try {
         const origin = req.params.origin;
@@ -78,7 +79,6 @@ router.get('/races/:origin', (req, res) => {
     } catch (error) {
         return res.status(404).send({ message: error });
     }
-
 });
 
 module.exports = router;

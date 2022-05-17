@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon src/server.js"
+    "start": "nodemon src/server.js",
+    "start-db": "npx json-server --watch db.json --port 3001"
   },
   "repository": {
     "type": "git",
@@ -18,8 +19,12 @@
   },
   "homepage": "https://github.com/Arielitoz/cat_Api_Case#readme",
   "dependencies": {
+    "@types/elasticsearch": "^5.0.40",
     "axios": "^0.27.2",
+    "elasticsearch": "^16.7.3",
     "express": "^4.18.1",
-    "nodemon": "^2.0.16"
+    "json-server": "^0.17.0",
+    "nodemon": "^2.0.16",
+    "swagger-ui-express": "^4.4.0"
   }
 }
