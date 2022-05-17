@@ -8,15 +8,13 @@ Essa solução recupera dados da API oficial: [Cats](https://thecatapi.com/).
 
 Documentação da API do projeto: [Docs](https://documenter.getpostman.com/view/21008445/Uyxkijry).
 
-### Ajustes, Melhorias e Implementações:
+### Implementações futuras:
 
 O projeto ainda está em desenvolvimento e as próximas atualizações serão voltadas nas seguintes tarefas:
 
-- [x] Tarefa 1
-- [x] Tarefa 2
-- [x] Tarefa 3
-- [] Tarefa 4
-- [ ] Tarefa 5
+- [ ] Observability - Kibana, Logs.
+- [ ] API´s Dash - Prometheus.
+- [ ] Implementação da fase de testes.
 
 ## Instalando
 
@@ -33,7 +31,6 @@ docker build -t api-case/ariel .
 ```
 docker run -p 4004:4004 -d api-case/ariel
 ```
-docker-compose up
 
 ## ☕ Usando a aplicação:
 
@@ -52,5 +49,30 @@ Em um outro terminal, insira esse comando:
 ```
 npm run start-db  ou  npm start-db
 ```
+
+## Aplicação:
+
+Endereço da Aplicação:
+```
+localhost:4004
+```
+Elastic Search - Kibana
+```
+localhost:5601
+```
+
+## Fase de Testes:
+
+> Para os testes, o ideal para o ambiente da aplicação seria:
+
+### Testes Estruturais:
+
+- Testes Unitários: Por ser uma aplicação relativamente pequena e separada em algumas chamadas. Cada 'endpoint' será testado dessa forma.
+    <br>
+- Teste de Stress: Cada chamada deve ser submetida a um teste de stress para averiguar chamadas inesperadas da documentação, quantidade de usuários e outros.
+<br>
+- Teste de Carga: Testar a quantidade de usuários simultâneos em um endpoint.
+<br>
+- Teste Automatizado: Simular e repetir diversos cenários de teste, para encontrar bugs, minimizar os problemas e diminuir o tempo gasto em testes manuais.
 
 [⬆ Voltar ao topo](#Cat-API-Case)<br>
