@@ -90,7 +90,12 @@ router.get("/image-cat/:id", async (req, res) => {
                 }
             });
 
-            return res.status(201).send({ message: 'Base de Imagens de gatos com chapéus atualizada' });
+            let imageInfo = {
+                id: data[0].id,
+                url: data[0].url
+            }
+
+            return res.status(201).send({ message: 'Base de Imagens de gatos com chapéus atualizada', imageInfo });
         } else if (id == 4) {
             axios.post(url.baseUrlCatsSun, {
                 id: data[0].id,
@@ -115,6 +120,12 @@ router.get("/image-cat/:id", async (req, res) => {
                     return res.status(201).send({ message: 'Base de pesquisa atualizada' });
                 }
             });
+
+            let imageInfo = {
+                id: data[0].id,
+                url: data[0].url
+            }
+            
             return res.status(201).send({ message: 'Base de Imagens de gatos com óculos atualizada' });
         } else {
             return res.status(404).send({ message: 'Id não permitido' })
