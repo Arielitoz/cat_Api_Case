@@ -30,6 +30,11 @@ services:
       networks:
       - elastic
 
+  nginx:
+      image: ariel_cat/logs
+      ports:
+        - 9000:80
+
 networks:
   elastic:
     driver: bridge
