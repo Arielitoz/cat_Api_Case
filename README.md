@@ -61,6 +61,9 @@ Elastic Search - Kibana
 localhost:5601
 ```
 
+<img src="./elasticData.JPG" alt="informação elastic search - imagens gatos">
+<img src="./catData.JPG" alt="Informação raças gatos - elastic">
+
 ## Fase de Testes:
 
 > Para os testes, o ideal para o ambiente da aplicação seria:
